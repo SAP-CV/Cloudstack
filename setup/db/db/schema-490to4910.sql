@@ -72,3 +72,7 @@ INSERT IGNORE INTO `cloud`.`guest_os_hypervisor` (uuid,hypervisor_type, hypervis
 INSERT IGNORE INTO `cloud`.`guest_os_hypervisor` (uuid,hypervisor_type, hypervisor_version, guest_os_name, guest_os_id, created, is_user_defined) VALUES (UUID(),'VMware', '6.0', 'sles11_64Guest', 187, utc_timestamp(), 0);
 INSERT IGNORE INTO `cloud`.`guest_os_hypervisor` (uuid,hypervisor_type, hypervisor_version, guest_os_name, guest_os_id, created, is_user_defined) VALUES (UUID(),'VMware', '6.0', 'sles11Guest', 188, utc_timestamp(), 0);
 INSERT IGNORE INTO `cloud`.`guest_os_hypervisor` (uuid,hypervisor_type, hypervisor_version, guest_os_name, guest_os_id, created, is_user_defined) VALUES (UUID(),'VMware', '6.0', 'sles12_64Guest', 244, utc_timestamp(), 0);
+
+-- Add new columns to user_vm table, for Lifespan extention
+ALTER TABLE `cloud`.`user_vm` ADD COLUMN `expires` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `update_parameters`;
+ALTER TABLE `cloud`.`user_vm` ADD COLUMN `notification_count` INT NOT NULL DEFAULT '0' AFTER `expires`;
