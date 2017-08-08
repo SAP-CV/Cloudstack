@@ -656,6 +656,7 @@ public class ApiConstants {
     public static final String ZONE_ID_LIST = "zoneids";
     public static final String DESTINATION_ZONE_ID_LIST = "destzoneids";
     public static final String ADMIN = "admin";
+    public static final String EXPIRATION = "expires";
 
     public enum HostDetails {
         all, capacity, events, stats, min;

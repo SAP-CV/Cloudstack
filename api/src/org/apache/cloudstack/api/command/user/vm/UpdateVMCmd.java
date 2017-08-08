@@ -17,6 +17,7 @@
 package org.apache.cloudstack.api.command.user.vm;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -121,6 +122,12 @@ public class UpdateVMCmd extends BaseCustomIdCmd implements SecurityGroupAction 
             description = "optional boolean field, which indicates if details should be cleaned up or not (if set to true, details removed for this resource, details field ignored; if false or not set, no action)")
     private Boolean cleanupDetails;
 
+    @Parameter(name = ApiConstants.EXPIRATION,
+            type = CommandType.DATE,
+            description = "instance expiration date of the user vm"
+    )
+    private Date expires;
+
     /////////////////////////////////////////////////////
     /////////////////// Accessors ///////////////////////
     /////////////////////////////////////////////////////
@@ -180,6 +187,10 @@ public class UpdateVMCmd extends BaseCustomIdCmd implements SecurityGroupAction 
 
     public boolean isCleanupDetails(){
         return cleanupDetails == null ? false : cleanupDetails.booleanValue();
+    }
+
+    public Date getExpires() {
+        return expires;
     }
 
     /////////////////////////////////////////////////////
