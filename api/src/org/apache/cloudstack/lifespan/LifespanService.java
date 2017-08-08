@@ -1,7 +1,6 @@
 package org.apache.cloudstack.lifespan;
 
 import com.cloud.uservm.UserVm;
-import com.cloud.vm.VirtualMachine;
 
 import java.util.Date;
 
