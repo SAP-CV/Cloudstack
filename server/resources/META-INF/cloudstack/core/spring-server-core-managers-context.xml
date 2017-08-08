@@ -87,7 +87,7 @@
 
     <bean id="userVmManagerImpl" class="com.cloud.vm.UserVmManagerImpl" />
 
-    <bean id="lifespanServiceImpl" class="org.apache.cloudstack.lifespan.LifespanServiceImpl" />
+    <bean id="lifespanServiceImpl" class="org.apache.cloudstack.expiry.InstanceExpirationServiceImpl" />
 
     <bean id="consoleProxyManagerImpl" class="com.cloud.consoleproxy.ConsoleProxyManagerImpl">
         <property name="consoleProxyAllocators"
