@@ -64,7 +64,7 @@ public class UserVmDaoImpl extends GenericDaoBase<UserVmVO, Long> implements Use
     protected SearchBuilder<UserVmVO> HostRunningSearch;
     protected SearchBuilder<UserVmVO> StateChangeSearch;
     protected SearchBuilder<UserVmVO> AccountHostSearch;
-
+    protected SearchBuilder<UserVmVO> ExpiringVmSearch;
     protected SearchBuilder<UserVmVO> DestroySearch;
     protected SearchBuilder<UserVmVO> AccountDataCenterVirtualSearch;
     protected GenericSearchBuilder<UserVmVO, Long> CountByAccountPod;
@@ -111,6 +111,7 @@ public class UserVmDaoImpl extends GenericDaoBase<UserVmVO, Long> implements Use
     protected UserVmDetailsDao _detailsDao;
     @Inject
     protected NicDao _nicDao;
+
 
     public UserVmDaoImpl() {
     }
@@ -207,6 +208,9 @@ public class UserVmDaoImpl extends GenericDaoBase<UserVmVO, Long> implements Use
         UserVmByIsoSearch = createSearchBuilder();
         UserVmByIsoSearch.and("isoId", UserVmByIsoSearch.entity().getIsoId(), SearchCriteria.Op.EQ);
         UserVmByIsoSearch.done();
+
+        ExpiringVmSearch = createSearchBuilder();
+        //ExpiringVmSearch.and("")
 
         _updateTimeAttr = _allAttributes.get("updateTime");
         assert _updateTimeAttr != null : "Couldn't get this updateTime attribute";
@@ -657,5 +661,11 @@ public class UserVmDaoImpl extends GenericDaoBase<UserVmVO, Long> implements Use
         }
 
         return vmsDetailByNames;
+    }
+
+    @Override
+    public List<UserVmVO> getExpiresOn(Integer notificationInterval, Integer notificationQuantity) {
+        //TODO place ExpirationSearcher here
+        return null;
     }
 }

@@ -18,13 +18,13 @@ public interface InstanceExpirationService {
     static final ConfigKey<Integer> InstanceExpirationNotificationInterval = new ConfigKey<Integer>("Advanced", Integer.class, "instance.expiration.notificationInterval", "4320",
             "Instance expiration notification interval in minutes", true, ConfigKey.Scope.Global);
 
-    static final ConfigKey<Integer> InstanceExpirationNotificationFrequency = new ConfigKey<Integer>("Advanced", Integer.class, "instance.expiration.notificationFrequency", "4320",
-            "Instance expiration notification frequency in minutes", true, ConfigKey.Scope.Global);
+    static final ConfigKey<Integer> InstanceExpirationNotificationQuantity = new ConfigKey<Integer>("Advanced", Integer.class, "instance.expiration.notificationQuantity", "3",
+            "Instance expiration notification quantity", true, ConfigKey.Scope.Global);
 
     static final ConfigKey<Integer> InstanceExpirationGracePeriod = new ConfigKey<Integer>("Advanced", Integer.class, "instance.expiration.gracePeriod", "4320",
             "Instance expiration grace period: time in minutes before an expired instance is being destroyed", true, ConfigKey.Scope.Global);
 
-    static final ConfigKey<Integer> InstanceExpirationInterval = new ConfigKey<Integer>("Advanced", Integer.class, "instance.expiration.interval", "1",
+    static final ConfigKey<Integer> InstanceExpirationInterval = new ConfigKey<Integer>("Advanced", Integer.class, "instance.expiration.interval", "1440",
             "Interval in minutes when instance expiration manager checks for expired instances", false, ConfigKey.Scope.Global);
 
     static final ConfigKey<Time> InstanceExpirationStartTime = new ConfigKey<Time>("Advanced", Time.class, "instance.expiration.starttime","00:30",
