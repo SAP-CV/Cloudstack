@@ -6,7 +6,6 @@ import com.cloud.utils.concurrency.NamedThreadFactory;
 import com.cloud.vm.UserVmVO;
 import com.cloud.vm.dao.UserVmDao;
 import org.apache.cloudstack.managed.context.ManagedContextRunnable;
-import org.joda.time.DateTime;
 
 import javax.inject.Inject;
 import java.util.Date;
@@ -38,13 +37,10 @@ public class InstanceExpirationServiceImpl extends ManagerBase implements Instan
         @Override
         protected void runInContext() {
             // TODO Put in Tasks here
-            
             sendNotifications();
             // lcm.ShutdownExpired(true);
             // lcm.DestroyExpired();
-            
         }
-        
     }
 
     private void sendNotifications() {

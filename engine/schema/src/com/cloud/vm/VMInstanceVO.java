@@ -566,4 +566,6 @@ public class VMInstanceVO implements VirtualMachine, FiniteStateObject<State, Vi
     public void setPowerHostId(Long hostId) {
         powerHostId = hostId;
     }
+
+    public int getExiration() { return 0; }
 }

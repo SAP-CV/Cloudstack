@@ -210,7 +210,7 @@ public class UserVmDaoImpl extends GenericDaoBase<UserVmVO, Long> implements Use
         UserVmByIsoSearch.done();
 
         ExpiringVmSearch = createSearchBuilder();
-        //ExpiringVmSearch.and("")
+        ExpiringVmSearch.and("removed", ExpiringVmSearch.entity().getUuid(), SearchCriteria.Op.NNULL);
 
         _updateTimeAttr = _allAttributes.get("updateTime");
         assert _updateTimeAttr != null : "Couldn't get this updateTime attribute";
