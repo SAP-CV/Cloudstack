@@ -24,11 +24,12 @@ public class InstanceExpirationServiceImpl extends ManagerBase implements Instan
     Integer runInterval = 3 ;//new ConfigKey<Integer>( );
     @Override
     public void updateExpirationDate(UserVm vm, Date date) {
-        _executor = Executors.newScheduledThreadPool(1, new NamedThreadFactory("LifeSpan-Enforcer"));
+
     }
 
     @Override
     public boolean start() {
+        _executor = Executors.newScheduledThreadPool(1, new NamedThreadFactory("LifeSpan-Enforcer"));
         _executor.scheduleWithFixedDelay(new InstanceExpirationEnforcer(), runInterval, runInterval*runInterval, TimeUnit.HOURS);
         return true;
     }
